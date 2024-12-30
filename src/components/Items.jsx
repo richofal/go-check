@@ -1,11 +1,14 @@
-function Items({ item }) {
+function Items({ item, toggleDone }) {
   return (
-    <li key={item.id} className="flex items-center gap-[1.2rem]">
-      <input type="checkbox" />
-      <span style={{ textDecoration: item.done ? "line-through" : "" }}>
+    <li className="flex items-center gap-[1.2rem]">
+      <input
+        type="checkbox"
+        checked={item.done}
+        onChange={() => toggleDone(item.id)}
+      />
+      <span style={{ textDecoration: item.done ? "line-through" : "none" }}>
         {item.title}
       </span>
-      <button>❌</button>
     </li>
   );
 }
